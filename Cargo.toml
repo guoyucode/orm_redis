@@ -1,0 +1,29 @@
+[package]
+name = "orm_redis"
+version = "0.1.0"
+edition = "2021"
+
+[lib]
+path = "src/lib.rs"
+
+
+[dependencies]
+macro_lib = {path = "./macro_lib"}
+log = "*"
+serde_json = { version = "1.0", features = ["preserve_order"] }
+common_uu = {git = "https://gitee.com/guoyucode/common_uu.git", default-features = false}
+serde = { version = "1.0", features = ["derive"] }
+
+
+[dev-dependencies]
+log = "*"
+serde_json = { version = "1.0", features = ["preserve_order"] }
+common_uu = {git = "https://gitee.com/guoyucode/common_uu.git", default-features = false}
+serde = { version = "1.0", features = ["derive"] }
+tokio = { version = "1.13", features = ["rt", "rt-multi-thread", "macros", ] }
+redis_cluster_async = {  git = "https://github.com/zhiyong0804/redis-cluster-async.git" }
+redis-async-pool = { git = "https://github.com/zhiyong0804/redis-async-pool" }
+
+
+[features]
+default = []
