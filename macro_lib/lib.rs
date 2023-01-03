@@ -4,6 +4,11 @@ mod redis;
 mod utils;
 
 
+#[proc_macro_derive(RedisFromValue)]
+pub fn cache_from_value(input: TokenStream) -> TokenStream {
+    redis::cache_from_value(input)
+}
+
 #[proc_macro_derive(RedisHget)]
 pub fn cache_query_macro(input: TokenStream) -> TokenStream {
     redis::cache_query_macro(input)
