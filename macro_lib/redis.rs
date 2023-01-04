@@ -67,12 +67,10 @@ pub fn cache_from_value(input: TokenStream) -> TokenStream {
         let mut add = quote::quote! {};
         for i in 0..fields_ident_init.len() {
             let init_ele = &fields_ident_init[i];
-            let i_str = i.to_string();
-            // let ref ident_i = quote::format_ident!("{}", i);
             let ty_ele = &tys[i];
             add = quote::quote! {
                 #add
-                let #init_ele: #ty_ele = values[ #i_str.parse::<usize>().unwrap_or_default() ].conv_data();
+                let #init_ele: #ty_ele = values[ #i ].conv_data();
             };
         }
         add
@@ -184,12 +182,10 @@ pub fn cache_query_macro(input: TokenStream) -> TokenStream {
         let mut add = quote::quote! {};
         for i in 0..fields_ident_init.len() {
             let init_ele = &fields_ident_init[i];
-            let i_str = i.to_string();
-            // let ref ident_i = quote::format_ident!("{}", i);
             let ty_ele = &tys[i];
             add = quote::quote! {
                 #add
-                let #init_ele: #ty_ele = values[ #i_str.parse::<usize>().unwrap_or_default() ].conv_data();
+                let #init_ele: #ty_ele = values[ #i ].conv_data();
             };
         }
         add
@@ -298,12 +294,10 @@ pub fn cache_query_zrange_macro(input: TokenStream) -> TokenStream {
         let mut add = quote::quote! {};
         for i in 0..fields_ident_init.len() {
             let init_ele = &fields_ident_init[i];
-            let i_str = i.to_string();
-            // let ref ident_i = quote::format_ident!("{}", i);
             let ty_ele = &tys[i];
             add = quote::quote! {
                 #add
-                let #init_ele: #ty_ele = values[ #i_str.parse::<usize>().unwrap_or_default() ].conv_data();
+                let #init_ele: #ty_ele = values[ #i ].conv_data();
             };
         }
         add
